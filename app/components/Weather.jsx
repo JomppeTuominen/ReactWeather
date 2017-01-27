@@ -41,7 +41,7 @@ var Weather = React.createClass({
       } else if (temp && location && !error) {
         return <WeatherMessage temp={temp} location={location} country={country}/>
       } else if(error){
-        return <h3>Couldn't find city with that name!</h3>
+        return <h3>Couldn't find city with that name ;(</h3>
       }
     }
 
