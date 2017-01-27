@@ -20,32 +20,36 @@ var Weather = React.createClass({
         location: obj.location,
         temp: obj.temp,
         country: obj.country,
-        isLoading: false
+        isLoading: false,
+        error: false
       });
     }, function(err) {
       that.setState({
-        isLoading: false
+        isLoading: false,
+        error: true
       });
       console.error(err);
     });
   },
   render: function() {
     // ES6 destructuring syntax
-    var {isLoading, temp, location, country} = this.state;
+    var {isLoading, temp, location, country, error} = this.state;
 
     function renderMessage() {
-        if(isLoading) {
-            return <h3>Fetching weather...</h3>;
-        } else if (temp && location) {
-            return <WeatherMessage temp={temp} location={location} country={country}/>
-        }
+      if(isLoading) {
+        return <h3>Fetching weather...</h3>;
+      } else if (temp && location && !error) {
+        return <WeatherMessage temp={temp} location={location} country={country}/>
+      } else if(error){
+        return <h3>Couldn't find city with that name!</h3>
+      }
     }
 
     return (
       <div>
-      <h3>Get Weather</h3>
-      <WeatherForm onSearch={this.handleSearch}/>
-      {renderMessage()}
+        <h3>Get Weather</h3>
+        <WeatherForm onSearch={this.handleSearch}/>
+        {renderMessage()}
       </div>
     );
   }
