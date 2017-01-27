@@ -15,7 +15,7 @@ var About = (props) => {
         <a href="http://openweathermap.org/">OpenWeatherMap.org</a> - API used to search for weather data by city name.
       </li>
       <li>
-        <a href="https://restcountries.eu">REST Countries</a> - API used to search the country name by the country code. 
+        <a href="https://restcountries.eu">REST Countries</a> - API used to search the country name by the country code.
       </li>
       <li>
         <a href="https://github.com/JomppeTuominen/ReactWeather">My GitHub</a>
