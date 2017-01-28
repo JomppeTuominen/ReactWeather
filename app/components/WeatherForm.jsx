@@ -1,20 +1,6 @@
 // presentational component
 var React = require('react');
 var WeatherForm = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <form onSubmit={this.onFormSubmit}>
-          <div>
-            <input type="text" ref="location"></input>
-          </div>
-          <div>
-            <button className="button expanded hollow">Get Weather</button>
-          </div>
-        </form>
-      </div>
-    );
-  },
   onFormSubmit: function(e) {
     e.preventDefault();
 
@@ -27,6 +13,21 @@ var WeatherForm = React.createClass({
       this.props.onSearch(location);
     }
 
+  },
+
+  render: function() {
+    return (
+      <div>
+        <form onSubmit={this.onFormSubmit}>
+          <div>
+            <input type="search" ref="location" placeholder="Search weather by city"></input>
+          </div>
+          <div>
+            <button className="button expanded hollow">Get Weather</button>
+          </div>
+        </form>
+      </div>
+    );
   }
 });
 
